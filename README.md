@@ -3,7 +3,7 @@ Greeno
 
 Green domotic project for Energy@Home [Hackathon of 21-23 November 2014](http://www.treatabit.com/article/smart-home-hackathon) @ISMB.
 
-# vision
+*Vision*
 Teach people that save energy means save environment, and save enviroment means save us.
 
 # Team
@@ -11,7 +11,7 @@ Teach people that save energy means save environment, and save enviroment means 
 Gabriele D'Ambruoso - Project Manager
 Marco Guernieri - Developer
 Paride Letizia - Developer
-giuseppe Matulli - Developer
+Giuseppe Matulli - Developer
 Alberto Turina - Designer
 ```
 
@@ -31,6 +31,11 @@ The api of angular-dashboard-framework (adf) is documented [here](http://sdorra.
 A live demo of the adf can be viewed [here](http://guern.github.io/greeno/). The demo uses html5 localStorage to store the state of the dashboard. The source of the demo can be found [here](https://github.com/guern/greeno).
 
 ## Getting started
+
+Requirements:
+```
+[node.js](http://nodejs.org/download/) - npm packet installer
+```
 
 Install bower and grunt:
 

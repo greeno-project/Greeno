@@ -28,26 +28,26 @@ angular.module('sample', [
   'sample.widgets.weather', 'sample.widgets.markdown',
   'sample.widgets.linklist', 'sample.widgets.github',
   'sample.widgets.version', 'LocalStorageModule',
-  'structures', 'sample-01', 'sample-02', 'sample-03',
+  'structures', 'dashboard', 'energy', 'scheduler',
   'ngRoute'
 ])
 .config(function($routeProvider, localStorageServiceProvider){
   localStorageServiceProvider.setPrefix('adf');
 
-  $routeProvider.when('/sample/01', {
+  $routeProvider.when('/dashboard', {
     templateUrl: 'partials/sample.html',
-    controller: 'sample01Ctrl'
+    controller: 'dashboardCtrl'
   })
-  .when('/sample/02', {
+  .when('/energy', {
     templateUrl: 'partials/sample.html',
-    controller: 'sample02Ctrl'
+    controller: 'energyCtrl'
   })
-  .when('/sample/03', {
+  .when('/scheduler', {
     templateUrl: 'partials/sampleWithFilter.html',
-    controller: 'sample03Ctrl'
+    controller: 'schedulerCtrl'
   })
   .otherwise({
-    redirectTo: '/sample/01'
+    redirectTo: '/dashboard'
   });
 
 })

@@ -23,15 +23,15 @@
  */
 'use strict';
 
-angular.module('sample-02', ['adf', 'LocalStorageModule'])
-.controller('sample02Ctrl', function($scope, localStorageService) {
-  var name = 'sample-02';
+angular.module('energy', ['adf', 'LocalStorageModule'])
+.controller('energyCtrl', function($scope, localStorageService) {
+  var name = 'energy';
   var model = localStorageService.get(name);
   if (!model) {
     // set default model for demo purposes
 
     model = {
-      title: "Sample 02",
+      title: "Energy",
       structure: "6-6",
       rows: [{
         columns: [{
