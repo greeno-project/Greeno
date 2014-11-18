@@ -1,22 +1,30 @@
 Greeno
 ======
 
-Green domotic project for Energy@Home Hackathon of 21-23 November 2014 @ISMB
+Green domotic project for Energy@Home [Hackathon of 21-23 November 2014](http://www.treatabit.com/article/smart-home-hackathon) @ISMB.
+
+# vision
+Teach people that save energy means save environment, and save enviroment means save us.
 
 # Team
 ```
-Gabriele D'Ambruoso - project manager
-Marco Guernieri - developer
-Paride Letizia - developer
-giuseppe Matulli - developer
+Gabriele D'Ambruoso - Project Manager
+Marco Guernieri - Developer
+Paride Letizia - Developer
+giuseppe Matulli - Developer
 Alberto Turina - Designer
 ```
+
+## Technology
+
+This project is based on [ADF (angular-dashboard-framework) Project](http://github.com/sdorra/angular-dashboard-framework) a responsive, advanced framework based on the cutting-edge technologies.
 
 # angular-dashboard-framework
 
 > Dashboard framework with Angular.js, Twitter Bootstrap and Font Awesome.
 
 The api of angular-dashboard-framework (adf) is documented [here](http://sdorra.github.io/angular-dashboard-framework/docs/).
+
 
 ## Demo
 
