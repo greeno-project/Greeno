@@ -84,6 +84,9 @@
             <li ng-class="navClass('scheduler')">
               <a href="#/scheduler">Scheduler</a>
             </li>
+            <li ng-class="navClass('simple')">
+              <a href="#/simple">Simple JS</a>
+            </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -134,16 +137,27 @@
 
     <!-- sample -->
     <script type="text/javascript" src="scripts/sample.js"></script>
-    <script type="text/javascript" src="scripts/dashboard.js"></script>
-    <script type="text/javascript" src="scripts/energy.js"></script>
-    <script type="text/javascript" src="scripts/scheduler.js"></script>
+    <script type="text/javascript" src="scripts/config.js"></script>
     <script type="text/javascript" src="scripts/structures.js"></script>
 
+    <!-- services -->
+    <script type="text/javascript" src="scripts/services/bootstrapSvc.js"></script>
+    <script type="text/javascript" src="scripts/services/webSocketSvc.js"></script>
+
+    <!-- controllers -->
+    <script type="text/javascript" src="scripts/controllers/dashboard.js"></script>
+    <script type="text/javascript" src="scripts/controllers/energy.js"></script>
+    <script type="text/javascript" src="scripts/controllers/scheduler.js"></script>
+    <script type="text/javascript" src="scripts/controllers/simple.js"></script>
+    
     <!-- news widget -->
     <script type="text/javascript" src="scripts/widgets/news/news.js"></script>
 
     <!-- weather widget -->
     <script type="text/javascript" src="scripts/widgets/weather/weather.js"></script>
+
+    <!-- light-jemma widget -->
+    <script type="text/javascript" src="scripts/widgets/light-jemma/light-jemma.js"></script>
 
     <!-- linklist widget -->
     <script type="text/javascript" src="scripts/widgets/linklist/linklist.js"></script>

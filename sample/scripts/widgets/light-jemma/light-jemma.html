@@ -1,0 +1,12 @@
+<div class="text-center">
+  <div class="alert alert-info" ng-if="lightState==undefined">
+    Light state
+  </div>
+  <div class="light-jemma" ng-if="lightState!=undefined">
+    <div class="light-bulb" ng-class="{'off' : lightState==false}"></div>
+    <!-- <h4>last update: {{lastUpdate}}</h4> -->
+  </div>
+  <div class="btn btn-success onCb" ng-click="onCb()">On</div>
+  <div class="btn btn-danger offCb" ng-click="offCb()">Off</div>
+  <div class="btn btn-primary reverseCb" ng-click="reverseCb()">Reverse</div>
+</div>

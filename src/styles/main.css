@@ -83,3 +83,18 @@ pre.edit {
   color: #fff;
   background-color: #9DDB7A;
 }
+
+/* Widgets */
+.light-bulb {
+  height: 100px;
+  width: 100%;
+  margin: 0 0 20px 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: url(img/bulb-yellow.png);
+}
+
+.light-bulb.off {
+  background-image: url(img/bulb-off.png);
+}

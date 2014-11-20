@@ -25,11 +25,11 @@
 
 angular.module('sample', [
   'adf', 'sample.widgets.news', 'sample.widgets.randommsg',
-  'sample.widgets.weather', 'sample.widgets.markdown',
+  'sample.widgets.weather', 'sample.widgets.light-jemma', 'sample.widgets.markdown',
   'sample.widgets.linklist', 'sample.widgets.github',
   'sample.widgets.version', 'LocalStorageModule',
   'structures', 'dashboard', 'energy', 'scheduler',
-  'ngRoute'
+  'simple', 'ngRoute'
 ])
 .config(function($routeProvider, localStorageServiceProvider){
   localStorageServiceProvider.setPrefix('adf');
@@ -45,6 +45,10 @@ angular.module('sample', [
   .when('/scheduler', {
     templateUrl: 'partials/sampleWithFilter.html',
     controller: 'schedulerCtrl'
+  })
+  .when('/simple', {
+    templateUrl: 'partials/simple.html',
+    controller: 'simpleCtrl'
   })
   .otherwise({
     redirectTo: '/dashboard'

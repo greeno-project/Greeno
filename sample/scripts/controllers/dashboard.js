@@ -55,21 +55,21 @@ angular.module('dashboard', ['adf', 'LocalStorageModule'])
             },
             title: "Links"
           }, {
+            type: "light-jemma",
+            config: {
+              location: "ISMB"
+            },
+            title: "Light Jemma"
+          }, {
             type: "weather",
             config: {
-              location: "Hildesheim"
+              location: "Turin"
             },
-            title: "Weather Hildesheim"
+            title: "Weather Turin"
           }, {
             type: "weather",
             config: {
               location: "Edinburgh"
-            },
-            title: "Weather"
-          }, {
-            type: "weather",
-            config: {
-              location: "Dublin,IE"
             },
             title: "Weather"
           }]
