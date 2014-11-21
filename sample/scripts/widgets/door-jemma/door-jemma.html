@@ -3,9 +3,9 @@
     Door state
   </div>
   <div class="door-jemma" ng-if="doorState!=undefined">
-    <div class="door" ng-class="{'close' : doorState=="CLOSED"}"></div>
+    <div class="door" ng-class="{'close' : doorState=='CLOSED'}"></div>
     <!-- <h4>last update: {{lastUpdate}}</h4> -->
   </div>
-  <div class="btn btn-success open" ng-click="open()">Open</div>
-  <div class="btn btn-danger close" ng-click="close()">Close</div>
+  <div class="btn btn-success" ng-click="open()">Open</div>
+  <div class="btn btn-danger" ng-click="close()">Close</div>
 </div>

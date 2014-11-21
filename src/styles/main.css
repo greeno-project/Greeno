@@ -116,9 +116,9 @@ pre.edit {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  background-image: url(img/doorOpened.png);
+  background-image: url(img/open_door.png);
 }
 
 .door.close {
-  background-image: url(img/doorClosed.png);
+  background-image: url(img/closed_door.png);
 }

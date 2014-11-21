@@ -51,9 +51,8 @@ angular.module('sample.widgets.door-jemma', ['adf.provider', 'adf.services'])
       }
     };
   })
-  .controller('doorJemmaCtrl', ['$scope', 'CONFIG', '$q', '$http', 'doorJemmaSvc', 'webSocketSvc',
-    function($scope, CONFIG, $q, $http, lightJemmaSvc, webSocketSvc) {
-      $scope.lightState = true;
+  .controller('doorJemmaCtrl', ['$scope', 'CONFIG', '$q', '$http', 'doorJemmaSvc', 'webSocketSvc', 'httpReqSvc',
+    function($scope, CONFIG, $q, $http, lightJemmaSvc, webSocketSvc, httpReqSvc) {
       var functionUID = 'ZigBee:Door Lock:ah.app.12345195726903800-1:DoorLock';
       var doorJemmaServiceUrl = CONFIG.functions + functionUID;
 
@@ -110,11 +109,20 @@ angular.module('sample.widgets.door-jemma', ['adf.provider', 'adf.services'])
 
           var date = new Date(data.timestamp);
           $scope.lastUpdate = date.toDateString();
-          $scope.doorState = data.value;
+          $scope.doorState = data.status;
         });
       }
 
       // connect the WebSocket channel
       $scope.connectWs();
+
+      // set initial status
+      httpReqSvc.get(functionUID, 'Status').then(function(res){
+        var data = res.result;
+
+        var date = new Date(data.timestamp);
+        $scope.lastUpdate = date.toDateString();
+        $scope.doorState = data.status;
+      });
     }
   ]);
