@@ -84,6 +84,17 @@ pre.edit {
   background-color: #9DDB7A;
 }
 
+/* Custom blocks style */
+.down-spaced {
+  margin: 15px;
+}
+.up-spaced {
+  margin: 15px 0 0 0;
+}
+.down-spaced {
+  margin: 0 0 15px 0;
+}
+
 /* Widgets */
 .light-bulb {
   height: 100px;
