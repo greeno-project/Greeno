@@ -109,3 +109,16 @@ pre.edit {
 .light-bulb.off {
   background-image: url(img/bulb-off.png);
 }
+.door {
+  height: 100px;
+  width: 100%;
+  margin: 0 0 20px 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: url(img/doorOpened.png);
+}
+
+.door.close {
+  background-image: url(img/doorClosed.png);
+}

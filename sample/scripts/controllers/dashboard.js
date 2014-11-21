@@ -60,6 +60,12 @@ angular.module('dashboard', ['adf', 'LocalStorageModule'])
               location: "ISMB"
             },
             title: "Light Jemma"
+          },{
+            type: "door-jemma",
+            config: {
+              location: "ISMB"
+            },
+            title: "Door Jemma"
           }, {
             type: "weather",
             config: {
