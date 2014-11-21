@@ -100,21 +100,21 @@ angular.module('sample.widgets.door-jemma', ['adf.provider', 'adf.services'])
         $scope.postResult = deferred.promise;
       }
 
-      // set reverse button callback
-      $scope.connectWs = function() {
+      // attach ws channel
+      $scope.initWs = function(functionUID) {
+        // istantiate the websocket
+        webSocketSvc.initWebSocket(functionUID);
+
         // initialize the web socket
         webSocketSvc.subscriptChannel(functionUID, 'status', function(res) {
-          var data = JSON.parse(res);
-          data = data.properties['dal.function.property.value'];
-
-          var date = new Date(data.timestamp);
+          var date = new Date(res.timestamp);
           $scope.lastUpdate = date.toDateString();
-          $scope.doorState = data.status;
+          $scope.doorState = res.status;
         });
       }
 
       // connect the WebSocket channel
-      $scope.connectWs();
+      $scope.initWs(functionUID);
 
       // set initial status
       httpReqSvc.get(functionUID, 'Status').then(function(res){

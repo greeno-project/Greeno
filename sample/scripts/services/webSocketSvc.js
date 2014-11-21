@@ -3,18 +3,23 @@
 angular.module('adf.services')
   .service('webSocketSvc', [function() {
         var webSocketUrl = 'ws://localhost:8080/ws';
-        var websocket;
+        var websocketList = {};
+
+        // callbacks dictionary
+        var callbacks = {};
 
         var channelConnected = false;
 
         // web socket subscription requests in pending
         var pendingRequests = [];
 
-        function initWebSocket() {
-            websocket = new WebSocket(webSocketUrl);
+        this.initWebSocket = function(func) {
+            websocketList[func] = new WebSocket(webSocketUrl);
+            var websocket = websocketList[func];
             websocket.onopen = function(evt) { onOpen(evt) };
-            websocket.onclose = function(evt) { onClose(evt) };
+            websocket.onclose = function(evt) { onClose(evt, func) };
             websocket.onerror = function(evt) { onError(evt) };
+            websocket.onmessage = function(evt) { onMessage(evt) };
         }
 
         function onOpen (evt) {
@@ -23,18 +28,22 @@ angular.module('adf.services')
             processPendingSubscriptions();
         }
 
-        function onClose (evt) {
+        function onClose (evt, func) {
             console.log("DISCONNECTED");
             channelConnected = false;
             setTimeout(function(){
-                initWebSocket();
+                initWebSocket(func);
             }, 1000);
         }
 
-        function onMessage (evt, callback) {
+        function onMessage (evt) {
             //update events text area when a message have been received from websocket
-            //$("#eventsTextArea").val($("#eventsTextArea").val()+evt.data);
-            callback(evt.data);
+            var data = JSON.parse(evt.data);
+            var func = data.properties['dal.function.UID'];
+            var property = data.properties['dal.function.property.name'];
+            var value = data.properties['dal.function.property.value'];
+
+            callbacks[func][property](value);
         }
 
         function onError (evt) {
@@ -48,8 +57,9 @@ angular.module('adf.services')
             console.log("Subscribing to: "+functionUID+" "+property);
 
             // set custom callback
-            websocket.onmessage = function(evt) { onMessage(evt, callback) };
-            websocket.send('{"dal.function.UID":"'+functionUID+'","dal.function.property.name":"'+property+'"}');
+            callbacks[functionUID] = {};
+            callbacks[functionUID][property] = callback;
+            websocketList[functionUID].send('{"dal.function.UID":"'+functionUID+'","dal.function.property.name":"'+property+'"}');
         }
 
         function processPendingSubscriptions() {
@@ -69,8 +79,5 @@ angular.module('adf.services')
                 pendingRequests.push({f: functionUID, p: property, c: cb});
             }
         }
-
-        // start
-        initWebSocket();
     }
 ]);

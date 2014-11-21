@@ -124,20 +124,20 @@ angular.module('sample.widgets.light-jemma', ['adf.provider', 'adf.services'])
       }
 
       // attach ws channel
-      $scope.connectWs = function() {
+      $scope.initWs = function(functionUID) {
+        // istantiate the websocket
+        webSocketSvc.initWebSocket(functionUID);
+        
         // initialize the web socket
         webSocketSvc.subscriptChannel(functionUID, 'data', function(res) {
-          var data = JSON.parse(res);
-          data = data.properties['dal.function.property.value'];
-
-          var date = new Date(data.timestamp);
+          var date = new Date(res.timestamp);
           $scope.lastUpdate = date.toDateString();
-          $scope.lightState = data.value;
+          $scope.lightState = res.value;
         });
       }
 
       // connect the WebSocket channel
-      $scope.connectWs();
+      $scope.initWs(functionUID);
 
       // set initial status
       httpReqSvc.get(functionUID, 'Data').then(function(res){
