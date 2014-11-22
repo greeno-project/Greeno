@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('adf.services')
-  .service('webSocketSvc', [function() {
+  .service('webSocketSvc', ['CONFIG', function(CONFIG) {
         var webSocketUrl = 'ws://localhost:8080/ws';
+        webSocketUrl = 'ws://' + CONFIG.ip + ':' + CONFIG.port + '/ws';
         var websocketList = {};
 
         // callbacks dictionary

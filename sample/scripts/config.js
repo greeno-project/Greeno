@@ -2,10 +2,14 @@
  * Application configuration values
  */
 
-var host = 'http://localhost';
-var port = '8080';
+var ip = 'localhost'; //'192.168.10.103';
+var host = 'http://' + ip;
+var port = '8080'; //'80';
+
+
 var config_data = {
     'CONFIG': {
+        'ip': ip,
         'host': host,
         'port': port,
         'api': host + ':' + port + '/api',

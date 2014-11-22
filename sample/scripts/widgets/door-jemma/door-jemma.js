@@ -53,7 +53,8 @@ angular.module('sample.widgets.door-jemma', ['adf.provider', 'adf.services'])
   })
   .controller('doorJemmaCtrl', ['$scope', 'CONFIG', '$q', '$http', 'doorJemmaSvc', 'webSocketSvc', 'httpReqSvc',
     function($scope, CONFIG, $q, $http, lightJemmaSvc, webSocketSvc, httpReqSvc) {
-      var functionUID = 'ZigBee:Door Lock:ah.app.12345195726903800-1:DoorLock';
+      var functionUID2 = 'ZigBee:Door Lock:ah.app.12345195726903800-1:DoorLock';
+      var functionUID = 'ZigBee:YALE Door Lock:ah.app.3781220503199452-1:DoorLock';
       var doorJemmaServiceUrl = CONFIG.functions + functionUID;
 
       // set reverse button callback

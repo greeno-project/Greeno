@@ -55,6 +55,7 @@ angular.module('sample.widgets.light-jemma', ['adf.provider', 'adf.services'])
     function($scope, CONFIG, $q, $http, lightJemmaSvc, webSocketSvc, httpReqSvc) {
       $scope.lightState = true;
       var functionUID = 'ZigBee:ColorLight 1:ah.app.36276195726903800-1:OnOff';
+      var functionUID2 = 'ZigBee:MAC light:ah.app.36276195726903800-1:OnOff';
       var lightJemmaServiceUrl = CONFIG.functions + functionUID;
 
       // set reverse button callback
